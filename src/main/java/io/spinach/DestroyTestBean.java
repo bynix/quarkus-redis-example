@@ -1,13 +1,19 @@
 package io.spinach;
 
+import io.quarkus.runtime.Startup;
+import io.vertx.redis.client.RedisAPI;
+
 import javax.annotation.PreDestroy;
-import javax.inject.Singleton;
+import javax.inject.Inject;
 
 /**
  * @author aomsweet
  */
-@Singleton
-public class DestroyAbleBean {
+@Startup
+public class DestroyTestBean {
+
+    @Inject
+    RedisAPI redisAPI;
 
     @PreDestroy
     public void destroy() {
